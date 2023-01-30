@@ -75,12 +75,12 @@ public_users.get('/review/:isbn',function (req, res) {
 
 
 
-  let getAllBooks = new Promise((resolve,reject) => {
+  let AllBooks = new Promise((resolve,reject) => {
     resolve(books);
     })
 
   
-  function getByISBN(isbn) {
+  function ByISBN(isbn) {
     return new Promise((resolve, reject) => {
     let isbnNumber = parseInt(isbn);
     if (books[isbnNumber]) {
@@ -93,7 +93,7 @@ public_users.get('/review/:isbn',function (req, res) {
 
 
 
-    function getByAuthor(author) {
+    function ByAuthor(author) {
       return new Promise((resolve, reject) => {
       if (books[author]) {
       resolve(books[author]);
@@ -105,7 +105,7 @@ public_users.get('/review/:isbn',function (req, res) {
 
 
 
-     function getByTitle(title) {
+     function ByTitle(title) {
       return new Promise((resolve, reject) => {
       
       if (books[title]) {
