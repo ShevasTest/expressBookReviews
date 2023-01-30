@@ -26,7 +26,7 @@ public_users.post("/register", (req,res) => {
 // Get the book list available in the shop
 public_users.get('/',function (req, res) {
   //Write your code here
-  console.log(books)
+ 
   return res.send(JSON.stringify({books},null,4));
   
 });
@@ -74,14 +74,10 @@ public_users.get('/review/:isbn',function (req, res) {
 
 
 
-function getAllBooks() {
-  return new Promise((resolve, reject) => {
-  resolve(books);
-  });
 
-  }
-  getAllBooks();
-
+  let getAllBooks = new Promise((resolve,reject) => {
+    resolve(books);
+    })
 
   
   function getByISBN(isbn) {
@@ -94,19 +90,17 @@ function getAllBooks() {
     }
     })
     }
-    getByISBN(1)
 
 
 
     function getByAuthor(author) {
       return new Promise((resolve, reject) => {
-      let authorname = author;
       if (books[author]) {
       resolve(books[author]);
       }
       })
       }
-     getByAuthor("Chinua Achebe")
+
 
 
 
@@ -119,6 +113,4 @@ function getAllBooks() {
       }
       })
       }
-     getByTitle("Fairy tales")
-
 module.exports.general = public_users;
